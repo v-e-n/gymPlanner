@@ -33,8 +33,15 @@ class FirstStep{
         System.out.print("Enter your email");
         userEmail = input.nextLine();
         if(!ht.containsKey(userEmail)){
+
             System.out.println("Enter your password");
             pass = input.nextLine();
+
+            while(!pass.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[^A-Za-z\\d]).{8,}$")){
+                System.out.println("Weak password");
+                pass = input.nextLine();
+            }
+            
             Account newAccount = new Account(userEmail, pass);
             ht.put(userEmail, newAccount);
             account = true;
