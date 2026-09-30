@@ -58,3 +58,10 @@ Heap / Priority Queue	Determines which planned workout has the highest priority
 Hash Table	Provides fast lookup of exercises/workouts using IDs or names
 Graph	Represents relationships between workout days, exercises, or muscle groups
 
+
+
+// Log-in / Sign-up
+// Dashboard -> calendar 
+// Dashboard -> Personal Info, calendar (for summary of workout), to do (system provided check box)
+// Dashboard -> workout History (track based on the checkbox in the todo)
+// Identify -> suggested workout based on the weight goal and BMI

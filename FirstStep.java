@@ -54,9 +54,14 @@ class FirstStep{
     void logIn(){
         String userEmail;
         String userPass;
+        String pass;
+        int loginCount = 5;
+        int counter = 1;
 
         System.out.println("Enter your email");
         userEmail = input.nextLine();
+
+        System.out.println("Enter your password");
         userPass = input.nextLine();
 
         Account account = ht.get(userEmail);
@@ -66,12 +71,32 @@ class FirstStep{
             System.out.println("Account does not exists");
         }
         else{
-            String pass = account.getPass();
-            if(pass.equals(userPass)){
-                System.out.println("Log-in succesfully");
+            pass = account.getPass();
+            
+            while(!pass.equals(userPass) && counter < loginCount){
+                System.out.println("Incorrect Password");
+                System.out.println("Attempts remaining: " + (loginCount - counter));
+
+                userPass = input.nextLine();
+                counter++;
+
+                if(pass.equals(userPass)){
+                    System.out.println("Log-in Succesfully");
+                } else{
+                    System.out.println("Account Locked try again later");
+                }
             }
             
         }
+    }
+
+    void profile(){
+        int height;
+        int weight;
+        int bmi;
+
+        
+
     }
 }
 
@@ -89,4 +114,3 @@ But it doesn't handle:
  */
 
 
-// hello althea
