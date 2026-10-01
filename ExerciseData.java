@@ -148,7 +148,7 @@ public class ExerciseData {
         }
     }
 
-    void sortDifficulty(){
+    void sortDifficultyLowest(){
         
         
         int smallest;
@@ -171,5 +171,31 @@ public class ExerciseData {
         }
 
     }
+
+    void sortDifficultyHighest(){
+        
+        
+        int largest;
+        
+
+        for(int i = 0; i < exercises.size(); i++){
+            largest = i;
+
+            for(int j = i + 1; j < exercises.size(); j++){
+                if(exercises.get(j).getBaseDifficulty() > exercises.get(largest).getBaseDifficulty()){
+                    largest = j;
+                }
+                
+            }
+            Exercise temp = exercises.get(i);
+            exercises.set(i, exercises.get(largest));
+            exercises.set(largest, temp);
+
+
+        }
+
+    }
+
+
 
 }
