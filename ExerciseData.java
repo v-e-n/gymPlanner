@@ -150,18 +150,23 @@ public class ExerciseData {
 
     void sortDifficulty(){
         
-        Exercise temp;
+        
         int smallest;
         
 
         for(int i = 0; i < exercises.size(); i++){
-            Exercise difficultySort = exercises.get(i);
             smallest = i;
 
             for(int j = i + 1; j < exercises.size(); j++){
-                if(exercises[j])
+                if(exercises.get(j).getBaseDifficulty() < exercises.get(smallest).getBaseDifficulty()){
+                    smallest = j;
+                }
                 
             }
+            Exercise temp = exercises.get(i);
+            exercises.set(i, exercises.get(smallest));
+            exercises.set(smallest, temp);
+
 
         }
 
