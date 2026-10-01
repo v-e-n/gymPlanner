@@ -102,13 +102,69 @@ public class ExerciseData {
     }
 
     void searchMuscleGroup(String searchMuscle){
+        boolean flag = false;
         for(int i = 0; i < exercises.size(); i++){
             Exercise muscleGroup = exercises.get(i);
 
             if(searchMuscle.equals(muscleGroup.getTargetMuscle())){
                 System.out.println(muscleGroup);
-
+                flag = true;
             }
         }
+
+        if(flag == false){
+            System.out.println("Cannot find what are you looking for!");  
+        }
     }
+    void searchDiffultyTarget(String difficulty, String targetBody){
+        boolean flag = false;
+        
+        for(int i = 0; i < exercises.size(); i++){
+            Exercise find = exercises.get(i);
+            if(difficulty.equals(find.getBaseDifficulty()) && targetBody.equals(find.getBodyTypeTarget())){
+                System.out.println(find.getBaseDifficulty() + find.getBodyTypeTarget());
+                flag = true;
+            }
+        }
+         if(flag == false){
+              System.out.println("Cannot find what are you looking for!");  
+            }
+    }
+    
+    void searchBodyTarget(String bodyType, String target){
+        boolean flag = false;
+
+        for(int i = 0; i < exercises.size(); i++){
+            Exercise find = exercises.get(i);
+
+            if(bodyType.equals(find.getBodyTypeTarget()) && target.equals(find.getGoalTarget())){
+                System.out.println(find);
+                flag = true;
+            }
+        }
+
+        if(flag == false){
+            System.out.println("Cannot find what are you looking for!");
+        }
+    }
+
+    void sortDifficulty(){
+        
+        Exercise temp;
+        int smallest;
+        
+
+        for(int i = 0; i < exercises.size(); i++){
+            Exercise difficultySort = exercises.get(i);
+            smallest = i;
+
+            for(int j = i + 1; j < exercises.size(); j++){
+                if(exercises[j])
+                
+            }
+
+        }
+
+    }
+
 }
