@@ -174,7 +174,6 @@ public class ExerciseData {
 
     void sortDifficultyHighest(){
         
-        
         int largest;
         
 

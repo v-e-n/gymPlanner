@@ -100,6 +100,10 @@ class FirstStep{
     }
 }
 
+
+//TO DO ADMIN ACCOUNT
+// WHAT ARE OTHER OPTIONS NOT TO HAVE ADMIN ACCOUNT BUT IT WILL MONITOR THE DATA OR THE SYSTEMS
+
 /*
 One thing I'd have you add next
 
