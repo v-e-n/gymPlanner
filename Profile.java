@@ -1,30 +1,30 @@
-
 import java.util.Scanner;
 
+public class Profile {
 
-public class Profile{
-        Scanner input = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
+    BMICalculator bmiCalculator = new BMICalculator();
 
-      
+    float height;
+    float weight;
+    double bmi;
+    String bodyType;
+    String bodyGoal;
 
-            
+    Profile() {
 
-        float height;
-        float weight;
-        
-        Profile(){
-        System.out.println("Enter our height in meters" );
-            height = input.nextFloat();
-        System.out.println("Enter our weight in kilograms" );
-            weight = input.nextFloat();
-        }
+        System.out.println("Enter your height in meters");
+        height = input.nextFloat();
 
-        float bmiCalculater(){
+        System.out.println("Enter your weight in kilograms");
+        weight = input.nextFloat();
 
-            float bmi = weight / (height * height);
-            return bmi;
-        }
+        input.nextLine();
 
-        
+        bmi = bmiCalculator.calculateBMI(weight, height);
+        bodyType = bmiCalculator.getBodyType(bmi);
 
+        System.out.println("Enter your body goal");
+        bodyGoal = input.nextLine();
+    }
 }
