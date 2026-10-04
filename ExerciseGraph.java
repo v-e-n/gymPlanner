@@ -6,18 +6,20 @@ public class ExerciseGraph {
     private HashMap<String, ArrayList<String>> graph;
 
     public ExerciseGraph() {
+
         graph = new HashMap<>();
     }
 
-    // Add a vertex
+    // Add a vertex to the graph
     public void addVertex(String vertex) {
 
         if (!graph.containsKey(vertex)) {
+
             graph.put(vertex, new ArrayList<>());
         }
     }
 
-    // Add a connection between two vertices
+    // Connect an exercise to a muscle group
     public void addEdge(String exercise, String muscle) {
 
         addVertex(exercise);
@@ -26,39 +28,52 @@ public class ExerciseGraph {
         graph.get(exercise).add(muscle);
     }
 
-    // Display the graph
+    // Get the muscles connected to an exercise
+    public ArrayList<String> getConnections(String exercise) {
+
+        return graph.get(exercise);
+    }
+
+    // Check if an exercise is connected to a muscle
+    public boolean hasConnection(
+            String exercise,
+            String muscle) {
+
+        if (!graph.containsKey(exercise)) {
+            return false;
+        }
+
+        return graph.get(exercise)
+                .contains(muscle);
+    }
+
+    // Display the entire graph
     public void displayGraph() {
+
+        System.out.println("\n===== EXERCISE GRAPH =====");
 
         for (String vertex : graph.keySet()) {
 
-            System.out.print(vertex + " -> ");
-
-            for (String connection : graph.get(vertex)) {
-                System.out.print(connection + " ");
-            }
-
-            System.out.println();
+            System.out.println(
+                vertex + " -> " + graph.get(vertex)
+            );
         }
     }
 
-    // Search for an exercise or muscle
-    public boolean contains(String vertex) {
+    // Display connections of one exercise
+    public void showConnections(String exercise) {
 
-        return graph.containsKey(vertex);
-    }
+        if (!graph.containsKey(exercise)) {
 
-    // Get connections of a vertex
-    public void showConnections(String vertex) {
+            System.out.println(
+                "Exercise not found in graph."
+            );
 
-        if (!graph.containsKey(vertex)) {
-            System.out.println("Vertex not found.");
             return;
         }
 
-        System.out.println(vertex + " is connected to:");
-
-        for (String connection : graph.get(vertex)) {
-            System.out.println("- " + connection);
-        }
+        System.out.println(
+            exercise + " -> " + graph.get(exercise)
+        );
     }
 }

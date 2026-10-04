@@ -1,53 +1,45 @@
 import java.util.HashMap;
 
-
-
 public class ExerciseDataHash {
 
-    HashMap<String, Exercise> map = new HashMap<>();
-    HashMap<Integer, Exercise> mapInt = new HashMap<>();
-    ExerciseData exerciseData = new ExerciseData();
-    
+    private HashMap<String, Exercise> map = new HashMap<>();
+    private HashMap<Integer, Exercise> mapInt = new HashMap<>();
 
+    private ExerciseData exerciseData;
 
-    void populateHashMap(){
-        
-        String key;
-        int keyInt;
+    public ExerciseDataHash() {
 
-        for(int i = 0; i < exerciseData.exercises.size(); i++){
-            Exercise currentExercise = exerciseData.exercises.get(i);
-            key = currentExercise.getExerciseName();
-            keyInt = currentExercise.getExerciseId();
-            map.put(key, currentExercise);
-            mapInt.put(keyInt, currentExercise);
+        exerciseData = new ExerciseData();
 
-        }
-
+        populateHashMap();
     }
 
-    void searchExerciseHashMap(String searchingExerciseString){
-        Exercise result = map.get(searchingExerciseString);
-        
+    private void populateHashMap() {
 
-        if(result == null){
-            System.out.println("It doesnt exist");
-        } else {
-            System.out.println(result);
+        for (int i = 0; i < exerciseData.exercises.size(); i++) {
+
+            Exercise currentExercise =
+                    exerciseData.exercises.get(i);
+
+            map.put(
+                currentExercise.getExerciseName(),
+                currentExercise
+            );
+
+            mapInt.put(
+                currentExercise.getExerciseId(),
+                currentExercise
+            );
         }
     }
 
-    void searchExerciseIdHashMap(int exerciseId){
-        Exercise result = mapInt.get(exerciseId);
+    public Exercise searchExercise(String exerciseName) {
 
-        if(result == null){
-            System.out.println("It doesnt exist");
-        } else {
-            System.out.println(result);
-        }
-
+        return map.get(exerciseName);
     }
 
-   
-    
+    public Exercise searchExerciseId(int exerciseId) {
+
+        return mapInt.get(exerciseId);
+    }
 }

@@ -1,53 +1,55 @@
 import java.util.PriorityQueue;
+import java.util.Comparator;
 
 public class WorkoutPriorityQueue {
 
-    private PriorityQueue<Exercise> workoutQueue;
+    private PriorityQueue<Exercise> priorityQueue;
 
     public WorkoutPriorityQueue() {
 
-        workoutQueue = new PriorityQueue<>(
-            (a, b) -> Integer.compare(
-                b.getBaseDifficulty(),
-                a.getBaseDifficulty()
-            )
+        priorityQueue = new PriorityQueue<>(
+            Comparator.comparingInt(
+                Exercise::getBaseDifficulty
+            ).reversed()
         );
     }
 
-    // Add an exercise
     public void addExercise(Exercise exercise) {
 
-        workoutQueue.offer(exercise);
+        if (exercise != null) {
+            priorityQueue.offer(exercise);
+        }
     }
 
-    // Get the highest-priority exercise
     public Exercise peekHighestPriority() {
 
-        return workoutQueue.peek();
+        return priorityQueue.peek();
     }
 
-    // Remove the highest-priority exercise
     public Exercise removeHighestPriority() {
 
-        return workoutQueue.poll();
+        return priorityQueue.poll();
     }
 
-    // Check if empty
     public boolean isEmpty() {
 
-        return workoutQueue.isEmpty();
+        return priorityQueue.isEmpty();
     }
 
-    // Display the priority queue
+    public int size() {
+
+        return priorityQueue.size();
+    }
+
     public void displayQueue() {
 
-        while (!workoutQueue.isEmpty()) {
+        System.out.println("\nExercise Priority Queue:");
 
-            Exercise exercise = workoutQueue.poll();
+        for (Exercise exercise : priorityQueue) {
 
             System.out.println(
                 exercise.getExerciseName()
-                + " - Difficulty: "
+                + " | Difficulty: "
                 + exercise.getBaseDifficulty()
             );
         }
