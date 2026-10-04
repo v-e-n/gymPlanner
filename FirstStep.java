@@ -28,7 +28,6 @@ class FirstStep{
     public boolean signUp(){
         String userEmail;
         String pass;
-        boolean account = false;
 
         System.out.print("Enter your email");
         userEmail = input.nextLine();
