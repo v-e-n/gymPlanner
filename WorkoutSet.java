@@ -7,12 +7,18 @@ public class WorkoutSet {
 
     private String workoutType;
     private Profile profile;
+    
+    
 
     public WorkoutSet(String workoutType, Profile profile) {
         this.workoutType = workoutType;
         this.profile = profile;
 
         populateWorkoutSet();
+    }
+
+    public String getWorkoutType() {
+        return workoutType;
     }
 
     void populateWorkoutSet() {

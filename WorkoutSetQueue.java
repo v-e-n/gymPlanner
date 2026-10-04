@@ -3,7 +3,12 @@ import java.util.Queue;
 
 public class WorkoutSetQueue {
 
-    Queue<WorkoutSet> workoutQueue = new ArrayDeque<>();
+    private Queue<WorkoutSet> workoutQueue;
+    
+
+    public WorkoutSetQueue() {
+        workoutQueue = new ArrayDeque<>();
+    }
 
     public void addWorkout(WorkoutSet workout) {
         workoutQueue.offer(workout);
@@ -23,10 +28,10 @@ public class WorkoutSetQueue {
 
     public void displayQueue() {
 
-        System.out.println("Workout Queue:");
+        System.out.println("\n=== Workout Queue ===");
 
         for (WorkoutSet workout : workoutQueue) {
-            workout.displayWorkout();
+            System.out.println(workout.getWorkoutType() + " Workout:");
         }
     }
 }

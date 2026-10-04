@@ -1,17 +1,18 @@
 public class Gym {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        ExerciseData trial = new ExerciseData();
-        ExerciseDataHash trialHash = new ExerciseDataHash();
-        WorkoutSet trialWorkoutSet = new WorkoutSet();
-        
-        //trialHash.populateHashMap();
-        //trialHash.searchExerciseHashMap("Push Up");
+        System.out.println("=================================");
+        System.out.println("       FITNESS PLANNER");
+        System.out.println("=================================");
 
-        trialWorkoutSet.populateExerciseName();
-        trialWorkoutSet.workoutSetTest("Push Up");
+        Profile profile = new Profile();
 
-    } 
-    
+        WeeklyWorkoutPlan weeklyPlan =
+                new WeeklyWorkoutPlan(profile);
+
+        weeklyPlan.displayWeeklyPlan();
+
+        weeklyPlan.simulateWeek();
+    }
 }
